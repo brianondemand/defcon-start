@@ -1,8 +1,20 @@
-import { CheckCircle, Lock, Network, Search, AlertTriangle, Code, Shield } from "lucide-react";
+import {
+  CheckCircle,
+  Lock,
+  Network,
+  Search,
+  AlertTriangle,
+  Code,
+  Shield,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import securityEducation from "@/assets/security-education.jpg";
-import securityTraining from "@/assets/security-training.jpg";
+import securityEducation from "@/assets/presecurity.svg";
+import securityTraining from "@/assets/redteaming.svg";
+import devOps from "@/assets/devsecops.svg";
+import penTest from "@/assets/offensivepentesting.svg";
+import cryptography from "@/assets/introtocybersecurity.svg";
+import inResponse from "@/assets/advancedendpointinvestigations.svg";
 
 const modules = [
   {
@@ -11,48 +23,78 @@ const modules = [
     level: "Beginner",
     icon: Shield,
     image: securityEducation,
-    topics: ["Security Principles", "Risk Assessment", "Security Policies", "Compliance Frameworks"]
+    topics: [
+      "Security Principles",
+      "Risk Assessment",
+      "Security Policies",
+      "Compliance Frameworks",
+    ],
   },
   {
     title: "Network Security",
-    duration: "6 weeks", 
+    duration: "6 weeks",
     level: "Intermediate",
     icon: Network,
     image: securityTraining,
-    topics: ["Firewalls & IDS", "VPN Technologies", "Network Monitoring", "Wireless Security"]
+    topics: [
+      "Firewalls & IDS",
+      "VPN Technologies",
+      "Network Monitoring",
+      "Wireless Security",
+    ],
   },
   {
     title: "Ethical Hacking",
     duration: "8 weeks",
     level: "Advanced",
     icon: Search,
-    image: securityEducation,
-    topics: ["Penetration Testing", "Vulnerability Assessment", "Social Engineering", "Web App Security"]
+    image: penTest,
+    topics: [
+      "Penetration Testing",
+      "Vulnerability Assessment",
+      "Social Engineering",
+      "Web App Security",
+    ],
   },
   {
     title: "Incident Response",
     duration: "5 weeks",
     level: "Intermediate",
     icon: AlertTriangle,
-    image: securityTraining,
-    topics: ["Digital Forensics", "Malware Analysis", "Crisis Management", "Recovery Procedures"]
+    image: inResponse,
+    topics: [
+      "Digital Forensics",
+      "Malware Analysis",
+      "Crisis Management",
+      "Recovery Procedures",
+    ],
   },
   {
     title: "Secure Coding",
     duration: "6 weeks",
     level: "Intermediate",
     icon: Code,
-    image: securityEducation,
-    topics: ["OWASP Top 10", "Code Review", "Secure Development", "API Security"]
+    image: devOps,
+    topics: [
+      "OWASP Top 10",
+      "Code Review",
+      "Secure Development",
+      "API Security",
+    ],
   },
   {
     title: "Cryptography",
     duration: "4 weeks",
     level: "Advanced",
     icon: Lock,
-    image: securityTraining,
-    topics: ["Encryption Algorithms", "PKI Infrastructure", "Digital Signatures", "Blockchain Security"]
-  }
+    image: cryptography,
+    topics: [
+      "Encryption Algorithms",
+      "PKI Infrastructure",
+      "Digital Signatures",
+      "Blockchain Security",
+    ],
+  },
 ];
 
 const CourseModules = () => {
@@ -62,19 +104,26 @@ const CourseModules = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Course
-            <span className="bg-gradient-cyber bg-clip-text text-transparent"> Modules </span>
+            <span className="bg-gradient-cyber bg-clip-text text-transparent">
+              {" "}
+              Modules{" "}
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our comprehensive curriculum covers all aspects of cybersecurity, from fundamentals to advanced techniques.
+            Our comprehensive curriculum covers all aspects of cybersecurity,
+            from fundamentals to advanced techniques.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {modules.map((module, index) => (
-            <Card key={index} className="group hover:shadow-glow-accent transition-all duration-300 border-border/50 hover:border-cyber-green/50 overflow-hidden">
+            <Card
+              key={index}
+              className="group hover:shadow-glow-accent transition-all duration-300 border-border/50 hover:border-cyber-green/50 overflow-hidden"
+            >
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={module.image} 
+                <img
+                  src={module.image}
                   alt={module.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -83,7 +132,7 @@ const CourseModules = () => {
                   {module.level}
                 </Badge>
               </div>
-              
+
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-2">
                   <div className="w-10 h-10 bg-gradient-cyber rounded-lg flex items-center justify-center">
@@ -91,15 +140,20 @@ const CourseModules = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg">{module.title}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{module.duration}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {module.duration}
+                    </p>
                   </div>
                 </div>
               </CardHeader>
-              
+
               <CardContent>
                 <ul className="space-y-2">
                   {module.topics.map((topic, topicIndex) => (
-                    <li key={topicIndex} className="flex items-center space-x-2 text-sm">
+                    <li
+                      key={topicIndex}
+                      className="flex items-center space-x-2 text-sm"
+                    >
                       <CheckCircle className="w-4 h-4 text-cyber-green flex-shrink-0" />
                       <span>{topic}</span>
                     </li>
